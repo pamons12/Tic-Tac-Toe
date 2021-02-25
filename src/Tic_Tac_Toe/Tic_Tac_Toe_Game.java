@@ -11,13 +11,15 @@ public class Tic_Tac_Toe_Game {
 		
 		//System.out.println("How many players?");
 		System.out.println("Welcome to Tic-Tac-Toe \nWhat is player ones name?");
+		
+		//Initilize players
 		Player player1 = new Player();
-		player1[0] = inputScan.next();
-		player1[1] = "1";
+		Player player2 = new Player();
+
+		//Set names for players
+		player1.setName(inputScan.next());
 		System.out.println("What is player twos name?");
-		String[] player2;
-		player2[0] = inputScan.next();
-		player2[1] = "2";
+		player2.setName(inputScan.next());
 		
 		boolean validResponse=false;
 		String response="";
@@ -26,16 +28,20 @@ public class Tic_Tac_Toe_Game {
 			response = inputScan.next();
 			response.toUpperCase();
 			if(response != "YES" || response != "NO") {
-				System.out.println("Error incorrect response, Please enter yes or no");
+				System.out.println("Error incorrect response, please enter yes or no");
 			}
 		}
 		if (response =="YES") {
-			boolean tempBool = playerPicker(player1Name,player2Name);
+			boolean tempBool = playerPicker(player1.getName(),player2.getName());
 			if(tempBool == true) {
-				System.out.println(player1Name+" goes first");
+				System.out.println(player1.getName()+" goes first");
 			}else {
-				System.out.println(player2Name+" goes first");
+				System.out.println(player2.getName()+" goes first");
 			}
+		}
+		else{
+			player1.setOrderNum(1);
+			player2.setOrderNum(2);
 		}
 	}
 	
@@ -51,8 +57,9 @@ public class Tic_Tac_Toe_Game {
 	
 
 	public static void main(String[] args) {
-		
-
+		Tic_Tac_Toe_Game game = new Tic_Tac_Toe_Game();
+		game.setupGame();
+		System.out.println("Done");
 	}
 
 }

@@ -8,10 +8,10 @@ public class Player extends Tic_Tac_Toe_Game{
 	Player() {playerName = null; orderNum = 0;}
 
 	public String getName() {
-		return playerName;
+		return this.playerName;
 	}
 	public void setName(String name) {
-		playerName = name;
+		this.playerName = name;
 	}
 	
 	public int getOrderNum() {
